@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <script>
+        function quest0() {
+            let time = prompt("초 단위의 시간을 입력하세요.");
+            let min = time / 60;
+            let sec = time % 60; 
+            console.log(`${parseInt(min)}분 ${sec}초입니다.`);
+    
+    }
+ 
+        function quest1() {
+           
+            let x1 = prompt("첫 번째 점의 x좌표를 입력하세요.");
+            let y1 = prompt("첫 번째 점의 y좌표를 입력하세요.");
+            let x2 = prompt("두 번째 점의 x좌표를 입력하세요.");
+            let y2 = prompt("두 번째 점의 y좌표를 입력하세요.");
+
+            p1 = x1 - x2;
+            p2 = y1 - y2;
+
+            let distance = getDist(p1, p2);
+            console.log(distance);
+
+        }
+
+        function getDist(a, b) { 
+            return (a**2 + b**2)**1/2;
+        }
+
+        function quest2(str) {  
+            let str2 = str.toUpperCase();
+            console.log(str2);
+        }
+
+        function quest3() {
+            
+            let num1 = prompt("첫 번째 숫자를 입력하세요.");
+            let oper = prompt("연산자를 입력하세요.");
+            let num2 = prompt("두 번째 숫자를 입력하세요.");
+
+            var answer = operate(parseInt(num1), oper, parseInt(num2)); // 반드시 이 코드를 사용하세요
+            console.log("정답은 %d입니다.", answer);
+        }
+
+        function operate(num1, oper, num2) { // 반드시 이 함수를 이용하여 연산 결과를 계산하세요
+            
+            switch (oper){
+                case "+":
+                    return num1 + num;
+                    break;
+                case "-":
+                    return num1 - num2;
+                    break;
+                case "*":
+                    return num1 * num2;
+                    break;
+                case "/":
+                    return num1 / num2;
+                    break;
+                case "%":
+                    return num1 % num2;
+                    break;
+                default:
+                    return ("wrong");
+                    break;
+            }
+
+
+        }
+
+        function quest4() {
+            let user = prompt("가위 바위 보!");
+            let com = Math.floor(Math.random() * 3);
+
+            if (com == 0){
+                com = "가위";                
+            }else if (com == 1){
+                com = "바위";
+            }else{
+                com = "보";
+            }
+
+            console.log(`컴퓨터 : ${com}`);
+
+            if (com == "가위"){
+                if (user == "가위" ){
+                    console.log("무승부!");
+                }else if (user == "바위"){
+                    console.log("사용자 승리!");
+                }else{
+                    console.log("사용자 패배..");
+                }
+            }else if (com == "바위"){
+                if (user == "가위" ){
+                    console.log("사용자 패배..");
+                }else if (user == "바위"){
+                    console.log("무승부!");
+                }else{
+                    console.log("사용자 승리!");
+                }
+            }else {
+                if (user == "가위" ){
+                    console.log("사용자 승리!");
+                }else if (user == "바위"){
+                    console.log("사용자 패배..");
+                }else{
+                    console.log("무승부!");
+                }
+            }
+
+        }
+
+        function quest5() {
+            let str = prompt('문자열을 입력하세요');
+            console.log(myReverse(str));
+        }
+
+        function myReverse(str) {
+            let rev = '';
+
+            for (let i = 0; i < str.length; i++){
+                rev = str.split('')[i] + rev;
+            }
+            return rev;
+        }
+
+        function quest6() {
+            
+           
+            while (true){
+                let num = prompt("숫자를 입력하세요");
+                if(num < 0){
+                    console.log("끝!");
+                    break;
+                }else if(num % 2 != 0){
+                    console.log(`${num}를 입력하셨네요.`)
+                    continue;
+                
+                }else if (num % 2 == 0){
+                    continue;
+                }
+            }
+
+        }
+
+        function quest7(){
+            
+            let str = prompt("문자열을 입력해주세요.");
+            let abb = new Array();
+            let abb1 = "";
+            let abb2 = "";
+            abb = str.split(' ');
+            for (let i = 0; i < abb.length ; i++){
+              
+               abb1 = abb[i].split('');
+               abb2 =  abb2 + abb1[0].toUpperCase();
+            
+            }
+
+            return abb2;
+
+        }
+
+        let testStr = 'My name is mymy. Your name is youryour. His name is hishis. Her name is herher. So, my, your, his, her, name will be mymyyouryourhishisherehr.';
+        // 위 변수를 이용하여 quest8()함수를 실행하세요
+
+        function quest8(str){            
+
+            let spli = str.split(' ');
+            let rem = [];
+            for (let i = 0; i < spli.length; i++){
+                if(spli.indexOf(spli[i]) == i){
+                    rem.push(spli[i]);
+                }
+            }
+            return rem.sort();
+            
+        }
+
+        let longStr = "Computer engineering has been rapidly changed than any other academic disciplines; these changes are immediately reflected in the industrial field.";
+        // 위 변수를 이용하여 quest9()함수를 실행하세요
+
+        function quest9(str){
+            let rep = str.split("");
+            let li = rep.reduce((a,b) => {
+                if (a[b]){
+                    a[b]++;
+                }else {
+                    a[b] = 1;
+                }
+                return a;
+            }, {});
+            return li;
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
